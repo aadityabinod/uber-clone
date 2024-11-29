@@ -4,6 +4,7 @@ import cors from "cors"
 import connectToDb from './db/db.js'
 import userRoutes from "./routes/user.routes.js"
 import cookieParser from 'cookie-parser'
+import CaptainRoutes from "./routes/captain.routes.js"
 
 dotenv.config()
 const app = express()
@@ -17,6 +18,7 @@ app.use(cookieParser())
 
 // Place user routes before listening
 app.use('/user', userRoutes)
+app.use('/captain', CaptainRoutes)
 
 app.get('/',(req, res)=>{
     res.send('Hello ')
