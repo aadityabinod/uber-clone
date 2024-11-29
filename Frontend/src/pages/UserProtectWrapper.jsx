@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { UserDataContext } from '../context/UserContext'
 
 function UserProtectWrapper({children}) {
-    const token = localStorage.setItem('token')
+    const token = localStorage.getItem('token')
     const navigate = useNavigate()
     const {user, setUser} = useContext(UserDataContext)
     const [isLoading, setIsLoading] = useState(true)
@@ -14,7 +14,7 @@ function UserProtectWrapper({children}) {
           navigate('/login')
       }
 
-      axios.get(`${import.meta.env.VITE_BASE_URL}/users/profile`, {
+      axios.get(`${import.meta.env.VITE_BASE_URL}/user/profile`, {
           headers: {
               Authorization: `Bearer ${token}`
           }
