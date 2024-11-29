@@ -28,9 +28,9 @@ function App() {
 
         <Route path='/home'
           element={
-           
-              <Home />
-          
+            <UserProtectWrapper>
+            <Home />
+          </UserProtectWrapper>
           } />
         <Route path='/user/logout'
           element={<UserProtectWrapper>
